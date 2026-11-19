@@ -1,0 +1,1807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Learning Tree 🌳</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --forest:#183e2c;
+ --deep:#244f36;
+ --green:#528c50;
+ --leaf:#91b96d;
+ --lime:#c5df87;
+ --cream:#fff8e7;
+ --gold:#f3c65f;
+ --coral:#e88f7d;
+ --pink:#f5c6ca;
+ --blue:#a9d6e9;
+ --ink:#304536;
+ --white:#fffefa;
+ --shadow:0 7px 0 rgba(24,62,44,.13);
+}
+
+* {box-sizing:border-box}
+
+body {
+ margin:0;
+ background:var(--cream);
+ color:var(--ink);
+ font-family:'Nunito',sans-serif;
+}
+
+button,input {font:inherit}
+button {cursor:pointer;border:0;touch-action:manipulation}
+.hidden {display:none!important}
+
+.wrap {width:min(1120px,93%);margin:auto}
+
+h1,h2,h3,.brand,.chunky {
+ font-family:'Baloo 2',cursive;
+}
+
+h2 {color:var(--forest);font-size:2rem;margin:4px 0}
+p {line-height:1.6}
+
+.topbar {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ padding:15px 0;
+}
+
+.brand {
+ display:flex;
+ align-items:center;
+ gap:10px;
+ font-size:1.55rem;
+ font-weight:900;
+ color:var(--forest);
+}
+
+.logo {
+ background:var(--lime);
+ width:48px;height:48px;
+ display:grid;place-items:center;
+ border-radius:17px;
+ font-size:28px;
+}
+
+.stats {display:flex;gap:8px;flex-wrap:wrap}
+
+.pill {
+ background:white;
+ border:2px solid #e6e5d4;
+ border-radius:30px;
+ padding:8px 13px;
+ font-weight:900;
+ font-size:.88rem;
+}
+
+.card {
+ background:var(--white);
+ border:2px solid #e9e5d6;
+ border-radius:27px;
+ padding:24px;
+ box-shadow:var(--shadow);
+}
+
+.kicker {
+ font-size:.78rem;
+ letter-spacing:2px;
+ text-transform:uppercase;
+ font-weight:1000;
+ color:#b08037;
+}
+
+.primary {
+ background:var(--green);
+ color:white;
+ border-radius:16px;
+ padding:14px 23px;
+ font-weight:1000;
+ box-shadow:0 5px 0 #315f3b;
+ transition:.15s;
+}
+
+.primary:active {transform:translateY(3px);box-shadow:0 2px 0 #315f3b}
+.wide {width:100%;margin-top:12px}
+
+.back {
+ background:white;
+ border:2px solid #e6e7d9;
+ padding:11px 16px;
+ border-radius:14px;
+ font-weight:900;
+ color:var(--forest);
+}
+
+.row {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+}
+
+input {
+ width:100%;
+ padding:15px;
+ border:2px solid #d8e4ce;
+ border-radius:16px;
+ background:#fffef9;
+ outline:none;
+}
+
+input:focus {border-color:var(--green)}
+
+/* FOREST BACKGROUND */
+
+#loginScreen {
+ position:relative;
+ min-height:calc(100vh - 80px);
+ overflow:hidden;
+ background:
+ linear-gradient(180deg,#a8d4c3 0%,#d7e9b7 57%,#8eae69 57%,#759b58 100%);
+ border-radius:32px 32px 0 0;
+ padding:55px 6%;
+ display:grid;
+ grid-template-columns:1fr .85fr;
+ align-items:center;
+ gap:25px;
+}
+
+.forest-decoration {
+ position:absolute;
+ inset:0;
+ overflow:hidden;
+ pointer-events:none;
+}
+
+.forest-decoration span {
+ position:absolute;
+ font-size:clamp(55px,10vw,110px);
+ filter:drop-shadow(0 7px 3px #345a3630);
+}
+
+.forest-decoration .tree1 {bottom:8%;left:-3%}
+.forest-decoration .tree2 {bottom:8%;right:-3%}
+.forest-decoration .tree3 {bottom:24%;left:22%;font-size:65px}
+.forest-decoration .tree4 {bottom:20%;right:23%;font-size:75px}
+.forest-decoration .bush1 {bottom:1%;left:30%}
+.forest-decoration .bush2 {bottom:1%;right:28%}
+.forest-decoration .flower1 {bottom:4%;left:12%;font-size:32px}
+.forest-decoration .flower2 {bottom:6%;right:12%;font-size:38px}
+.forest-decoration .sun {top:8%;right:12%;font-size:65px}
+
+.hero-copy,.hero-scene {position:relative;z-index:2}
+
+.hero-copy {
+ background:rgba(255,250,230,.92);
+ border:4px solid white;
+ border-radius:30px;
+ padding:30px;
+ box-shadow:0 9px 0 rgba(24,62,44,.15);
+}
+
+.forest-title {
+ color:var(--forest);
+ font-size:clamp(4rem,8vw,7rem);
+ font-weight:900;
+ letter-spacing:-4px;
+ line-height:.85;
+ margin:15px 0;
+ text-shadow:0 5px #b4cf8c;
+}
+
+.hero-copy p {font-size:1.05rem}
+
+.hero-scene {
+ text-align:center;
+ font-size:clamp(130px,22vw,220px);
+ filter:drop-shadow(0 15px 8px #284b3533);
+ animation:sway 4s infinite ease-in-out;
+}
+
+@keyframes sway {50%{transform:rotate(3deg)}}
+
+.login-box {
+ background:#fffefa;
+ border:3px solid white;
+ border-radius:22px;
+ padding:18px;
+ margin-top:22px;
+}
+
+.greeting {
+ color:#9b7138;
+ font-weight:1000;
+ font-family:'Baloo 2',cursive;
+ font-size:1.3rem;
+}
+
+/* DASHBOARD */
+
+.dashboard-banner {
+ background:#244e35;
+ color:white;
+ padding:27px;
+ border-radius:26px;
+ margin:23px 0;
+ position:relative;
+ overflow:hidden;
+}
+
+.dashboard-banner:after {
+ content:'🌳';
+ position:absolute;
+ right:25px;
+ bottom:-25px;
+ font-size:110px;
+ opacity:.35;
+}
+
+.welcome {
+ font-family:'Baloo 2',cursive;
+ font-size:2.5rem;
+ font-weight:900;
+}
+
+.dashboard-banner p {color:#e3edcf}
+
+.section-title {
+ font-family:'Baloo 2',cursive;
+ font-size:1.7rem;
+ color:var(--forest);
+ margin:25px 0 13px;
+}
+
+.subject-grid,.tools-grid {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:16px;
+}
+
+.subject {
+ text-align:left;
+ padding:22px;
+ min-height:180px;
+ border:3px solid white;
+ border-radius:24px;
+ box-shadow:var(--shadow);
+ transition:.18s;
+ color:var(--ink);
+}
+
+.subject:hover {transform:translateY(-5px)}
+
+.subject .emoji {display:block;font-size:47px;margin-bottom:10px}
+
+.subject strong {
+ display:block;
+ font-family:'Baloo 2',cursive;
+ font-size:1.35rem;
+ font-weight:900;
+ color:var(--forest);
+ text-transform:uppercase;
+}
+
+.subject small {font-weight:700;font-size:.9rem}
+
+.spell {background:#f5c9ca}
+.math {background:#b8dcef}
+.grammar {background:#f7d88d}
+.games {background:#b9d79e}
+.stickers {background:#d8c9f1}
+.profile {background:#b9e0d5}
+
+.progress-card {
+ background:#fffefa;
+ border:2px solid #e7e7d7;
+ padding:18px;
+ border-radius:20px;
+}
+
+.progress-track {
+ height:14px;
+ background:#e8eddf;
+ border-radius:20px;
+ overflow:hidden;
+ margin:10px 0;
+}
+
+.progress-fill {
+ height:100%;
+ width:0%;
+ background:#70a85d;
+ transition:.3s;
+}
+
+/* LEARNING AREA */
+
+.lesson-heading {
+ display:flex;
+ gap:14px;
+ align-items:center;
+ margin:20px 0;
+}
+
+.lesson-icon {
+ width:70px;height:70px;
+ display:grid;place-items:center;
+ font-size:42px;
+ background:#f5e4b5;
+ border-radius:22px;
+}
+
+.lesson-panel {
+ background:#fffaf0;
+ border:3px solid white;
+ border-radius:28px;
+ padding:22px;
+ box-shadow:var(--shadow);
+}
+
+.levels {display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
+
+.level {
+ background:#e9eddf;
+ padding:11px 17px;
+ border-radius:30px;
+ font-weight:1000;
+ color:var(--forest);
+ border:2px solid transparent;
+}
+
+.level.active {background:#cce5b8;border-color:#60915b}
+
+.question-card {
+ position:relative;
+ overflow:hidden;
+ background:#dcebd1;
+ border:3px solid white;
+ border-radius:25px;
+ padding:24px;
+ margin-top:20px;
+}
+
+.question-card:after {
+ content:'🌼';
+ position:absolute;
+ right:12px;
+ top:4px;
+ font-size:48px;
+ opacity:.55;
+}
+
+.question-number {
+ display:inline-block;
+ background:#fff8dc;
+ color:#866333;
+ padding:7px 13px;
+ border-radius:20px;
+ font-weight:1000;
+}
+
+.question {
+ font-family:'Baloo 2',cursive;
+ color:#244e35;
+ font-size:1.65rem;
+ font-weight:900;
+ line-height:1.3;
+ margin:22px 0;
+ position:relative;
+ z-index:1;
+}
+
+.answers {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.answer {
+ background:#fffefa;
+ border:3px solid #e2e9d9;
+ border-radius:17px;
+ padding:16px;
+ min-height:62px;
+ font-weight:1000;
+ color:#34533b;
+ text-align:left;
+ transition:.15s;
+}
+
+.answer:hover:not(:disabled) {
+ background:#f7f0cf;
+ border-color:#d9b75e;
+ transform:translateY(-2px);
+}
+
+.answer.correct {background:#c8e9bc;border-color:#5d9c5c}
+.answer.wrong {background:#f8d0c8;border-color:#dc8879}
+
+.feedback {
+ font-family:'Baloo 2',cursive;
+ font-size:1.2rem;
+ font-weight:900;
+ min-height:35px;
+ margin:16px 0;
+}
+
+/* GAMES */
+
+.game-card {min-height:210px}
+.game-card.locked {opacity:.65;filter:grayscale(.5)}
+
+.lock-label {
+ display:inline-block;
+ margin-top:12px;
+ padding:7px 12px;
+ background:#fffefa;
+ border-radius:20px;
+ font-size:.8rem;
+ font-weight:1000;
+}
+
+/* BRANCH GAME */
+
+.game-shell {
+ background:#d9edc7;
+ border:4px solid white;
+ border-radius:26px;
+ padding:15px;
+ box-shadow:var(--shadow);
+ margin-top:20px;
+}
+
+.game-canvas-wrap {
+ position:relative;
+ width:100%;
+ max-width:500px;
+ margin:auto;
+ overflow:hidden;
+ border:4px solid white;
+ border-radius:20px;
+ background:linear-gradient(#b8dce0,#e3f1c9);
+}
+
+canvas {
+ display:block;
+ width:100%;
+ height:auto;
+ touch-action:none;
+}
+
+.game-hud {
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-bottom:12px;
+}
+
+.game-controls {
+ display:flex;
+ justify-content:center;
+ gap:25px;
+ margin:14px 0 4px;
+}
+
+.control-btn {
+ width:75px;
+ height:58px;
+ background:#315d42;
+ color:white;
+ border-radius:18px;
+ font-size:25px;
+ box-shadow:0 4px 0 #183e2c;
+}
+
+.game-overlay {
+ position:absolute;
+ inset:0;
+ background:#183e2cdd;
+ display:grid;
+ place-items:center;
+ padding:20px;
+ text-align:center;
+ color:white;
+ z-index:5;
+}
+
+.game-overlay h2 {color:white}
+
+.game-overlay .answer {text-align:center}
+
+.game-question-box {
+ width:100%;
+ background:#fff9e8;
+ color:#304536;
+ border-radius:20px;
+ padding:17px;
+}
+
+.game-question-box h3 {color:#244e35}
+
+.game-question-box .answers {grid-template-columns:1fr}
+
+/* STICKERS */
+
+.sticker-grid {
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+ gap:13px;
+}
+
+.sticker {
+ background:#fff5dc;
+ border:2px solid #f0dfb5;
+ border-radius:20px;
+ padding:15px;
+ text-align:center;
+}
+
+.sticker .big {display:block;font-size:43px}
+
+.sticker button {
+ background:#d8eacb;
+ color:#244e35;
+ padding:10px;
+ border-radius:12px;
+ font-weight:900;
+ margin-top:10px;
+}
+
+.sticker.locked {opacity:.65;background:#eee}
+
+.profile-board {
+ min-height:250px;
+ background:linear-gradient(#c4e4d0,#8ebd83);
+ border:4px dashed #64955e;
+ border-radius:24px;
+ padding:18px;
+ display:flex;
+ flex-wrap:wrap;
+ align-content:flex-start;
+ gap:12px;
+}
+
+.placed {
+ background:#fffefa;
+ padding:8px;
+ font-size:43px;
+ border-radius:16px;
+ cursor:pointer;
+}
+
+.footer {text-align:center;padding:30px;color:#789078}
+
+/* SAVE STATUS */
+
+.save-status {
+ font-size:.8rem;
+ color:#e8f2dc;
+ font-weight:800;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+ #loginScreen {grid-template-columns:1fr;padding:25px 5%}
+ .hero-scene {font-size:140px}
+ .subject-grid,.tools-grid {grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:480px) {
+ .subject-grid,.tools-grid,.answers {grid-template-columns:1fr}
+ .forest-title {font-size:4.5rem}
+ .card {padding:17px}
+ .welcome {font-size:2rem}
+ .topbar {flex-wrap:wrap}
+ .hero-copy {padding:20px}
+ .dashboard-banner {padding:20px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header class="topbar">
+ <div class="brand">
+  <span class="logo">🌳</span>
+  LEARNING TREE
+ </div>
+ <div id="topStats" class="stats hidden">
+  <span class="pill">⭐ <span id="topPoints">0</span></span>
+  <span class="pill">🏅 <span id="topAwards">0</span></span>
+ </div>
+</header>
+
+<!-- ENTRANCE -->
+
+<main id="loginScreen">
+
+<div class="forest-decoration">
+ <span class="sun">☀️</span>
+ <span class="tree1">🌲</span>
+ <span class="tree2">🌲</span>
+ <span class="tree3">🌳</span>
+ <span class="tree4">🌳</span>
+ <span class="bush1">🌿</span>
+ <span class="bush2">🌿</span>
+ <span class="flower1">🌼</span>
+ <span class="flower2">🌷</span>
+</div>
+
+<section class="hero-copy">
+ <div class="kicker">A LITTLE WORLD OF BIG DISCOVERIES</div>
+
+ <h1 class="forest-title">Learning<br>Tree<span style="color:#d99d42">.</span></h1>
+
+ <p>
+  Somewhere between the trees, there's a little place
+  waiting for you. Come explore, discover new things,
+  solve puzzles and collect treasures along the way!
+ </p>
+
+ <div class="login-box">
+  <div class="greeting" id="greeting">🌼 Oh, hello there!</div>
+  <h2>What's your name, explorer?</h2>
+  <input id="nameInput" maxlength="20" placeholder="Your name...">
+  <button class="primary wide" id="startBtn">LET'S EXPLORE! 🌳</button>
+  <div class="save-status" style="color:#71866c;margin-top:12px">
+   🌱 Your adventure is saved on this device.
+  </div>
+ </div>
+</section>
+
+<div class="hero-scene">🌳</div>
+</main>
+
+<!-- DASHBOARD -->
+
+<main id="app" class="hidden">
+
+<section class="dashboard-banner">
+ <div class="kicker" style="color:#e9cf88">YOUR LITTLE FOREST</div>
+ <div class="welcome" id="welcomeText">Hello, Explorer!</div>
+ <p>Pick a path and see where your curiosity takes you. 🌿</p>
+ <div class="stats">
+  <span class="pill">⭐ <span id="dashPoints">0</span> points</span>
+  <span class="pill">🏅 <span id="dashAwards">0</span> awards</span>
+  <span class="pill">🌰 <span id="dashAcorns">0</span> acorns</span>
+ </div>
+ <div class="save-status" id="saveStatus">✓ Progress saved</div>
+</section>
+
+<div class="progress-card">
+ <div class="row">
+  <strong>🌱 YOUR GROWING JOURNEY</strong>
+  <span id="progressLabel">0 correct answers</span>
+ </div>
+ <div class="progress-track">
+  <div class="progress-fill" id="progressFill"></div>
+ </div>
+</div>
+
+<div class="section-title">WHERE SHALL WE GO? 🌷</div>
+
+<section class="subject-grid">
+
+<button class="subject spell" data-subject="spelling">
+ <span class="emoji">🔤</span>
+ <strong>WORD GARDEN</strong>
+ <small>Discover words and spelling</small>
+</button>
+
+<button class="subject math" data-subject="math">
+ <span class="emoji">🔢</span>
+ <strong>NUMBER MEADOW</strong>
+ <small>Explore numbers and puzzles</small>
+</button>
+
+<button class="subject grammar" data-subject="grammar">
+ <span class="emoji">📚</span>
+ <strong>STORY CORNER</strong>
+ <small>Build sentences and stories</small>
+</button>
+
+<button class="subject games" data-subject="games">
+ <span class="emoji">🎮</span>
+ <strong>GAME FOREST</strong>
+ <small>Unlock fun little adventures</small>
+</button>
+
+<button class="subject stickers" data-subject="stickers">
+ <span class="emoji">🎁</span>
+ <strong>TREASURE SHOP</strong>
+ <small>Spend points on treasures</small>
+</button>
+
+<button class="subject profile" data-subject="profile">
+ <span class="emoji">🏡</span>
+ <strong>MY TREEHOUSE</strong>
+ <small>Make your own little world</small>
+</button>
+
+</section>
+
+<div class="footer">🌳 There's always something new growing here.</div>
+</main>
+
+<!-- LESSON -->
+
+<main id="lessonScreen" class="hidden">
+
+<div class="row" style="margin:22px 0">
+ <button class="back" onclick="showDashboard()">← FOREST HOME</button>
+ <span class="pill">⭐ <span id="lessonPoints">0</span></span>
+</div>
+
+<div class="lesson-heading">
+ <div class="lesson-icon" id="lessonIcon">🔤</div>
+ <div>
+  <div class="kicker">A NEW ADVENTURE AWAITS</div>
+  <h2 id="lessonTitle">WORD GARDEN</h2>
+ </div>
+</div>
+
+<section class="lesson-panel">
+ <h3>Choose your adventure! 🌱</h3>
+ <p>Take your time, think carefully and enjoy learning.</p>
+
+ <div class="levels">
+  <button class="level active" data-level="easy">🌱 EASY</button>
+  <button class="level" data-level="medium">🌿 MEDIUM</button>
+  <button class="level" data-level="advanced">🌳 ADVANCED</button>
+ </div>
+
+ <div class="question-card">
+  <span class="question-number" id="progressText">QUESTION 1</span>
+  <div class="question" id="questionText"></div>
+  <div class="answers" id="answerButtons"></div>
+  <div class="feedback" id="feedback" aria-live="polite"></div>
+  <button class="primary hidden" id="nextBtn">NEXT ADVENTURE →</button>
+ </div>
+</section>
+</main>
+
+<!-- GAMES -->
+
+<main id="gamesScreen" class="hidden">
+<div class="row" style="margin:22px 0">
+ <button class="back" onclick="showDashboard()">← FOREST HOME</button>
+ <span class="pill">🎮 GAME FOREST</span>
+</div>
+
+<h2>TIME TO PLAY! 🌳</h2>
+<p>Some adventures need special achievements. Keep learning to unlock them!</p>
+
+<div class="tools-grid">
+
+<button class="subject games" onclick="startTreeGame()">
+ <span class="emoji">🐿️</span>
+ <strong>BRANCH HOPPER</strong>
+ <small>Jump from branch to branch, collect acorns and avoid obstacles!</small>
+ <span class="lock-label">🔓 READY TO PLAY</span>
+</button>
+
+<button class="subject spell game-card" id="wordCard" onclick="startWordGame()">
+ <span class="emoji">🐝</span>
+ <strong>WORD BEE</strong>
+ <small>Help the bee find the correct words.</small>
+ <span class="lock-label" id="wordStatus">🔒 EARN 1 AWARD</span>
+</button>
+
+<button class="subject grammar game-card" id="sentenceCard" onclick="startSentenceGame()">
+ <span class="emoji">🦉</span>
+ <strong>SENTENCE BUILDER</strong>
+ <small>Help the owl make lovely sentences.</small>
+ <span class="lock-label" id="sentenceStatus">🔒 EARN 2 AWARDS</span>
+</button>
+
+</div>
+
+<!-- BRANCH HOPPER -->
+
+<section id="treeGame" class="game-shell hidden">
+ <div class="row">
+  <h2>🐿️ Branch Hopper</h2>
+  <span class="pill">🌰 <span id="acornScore">0</span></span>
+ </div>
+
+ <p>Move left and right to land on branches. Watch out for thorny branches and collect acorns!</p>
+
+ <div class="game-canvas-wrap">
+  <canvas id="treeCanvas" width="420" height="560"></canvas>
+
+  <div class="game-overlay" id="treeStartOverlay">
+   <div>
+    <div style="font-size:65px">🐿️</div>
+    <h2>Ready to climb?</h2>
+    <p>Jump between the branches and collect as many acorns as you can!</p>
+    <button class="primary" onclick="beginTreeGame()">START CLIMBING 🌳</button>
+   </div>
+  </div>
+
+  <div class="game-overlay hidden" id="treeQuestionOverlay">
+   <div class="game-question-box">
+    <div style="font-size:42px">🌰</div>
+    <h3>ACORN CHALLENGE!</h3>
+    <p id="treeQuestion"></p>
+    <div class="answers" id="treeAnswers"></div>
+    <p id="treeFeedback"></p>
+   </div>
+  </div>
+
+  <div class="game-overlay hidden" id="treeEndOverlay">
+   <div>
+    <div style="font-size:60px">🏆</div>
+    <h2>Great climbing!</h2>
+    <p id="treeEndText"></p>
+    <button class="primary" onclick="beginTreeGame()">PLAY AGAIN 🌳</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="game-controls">
+  <button class="control-btn" id="leftControl">←</button>
+  <button class="control-btn" id="rightControl">→</button>
+ </div>
+ <p style="text-align:center;font-size:.85rem">
+  💻 Use arrow keys or A and D. On iPad, hold the buttons to move.
+ </p>
+</section>
+
+<!-- WORD AND SENTENCE GAME -->
+
+<section id="smallGame" class="card hidden" style="margin-top:20px">
+ <div class="row">
+  <h2 id="smallGameTitle">Word Bee</h2>
+  <span class="pill" id="smallGameRound">1 / 5</span>
+ </div>
+ <div class="game-play">
+  <div style="font-size:60px" id="smallGameEmoji">🐝</div>
+  <div class="question" id="smallGameQuestion"></div>
+ </div>
+ <div class="answers" id="smallGameAnswers"></div>
+ <div class="feedback" id="smallGameFeedback"></div>
+ <button class="primary hidden" id="smallGameNext">NEXT →</button>
+</section>
+
+</main>
+
+<!-- SHOP -->
+
+<main id="stickersScreen" class="hidden">
+<div class="row" style="margin:22px 0">
+ <button class="back" onclick="showDashboard()">← FOREST HOME</button>
+ <span class="pill">⭐ <span id="shopPoints">0</span></span>
+</div>
+<h2>THE TREASURE SHOP 🎁</h2>
+<p>You've been collecting points! Trade them for little forest treasures.</p>
+<div class="sticker-grid" id="stickerGrid"></div>
+<h2 style="margin-top:30px">YOUR AWARDS 🏅</h2>
+<div class="tools-grid" id="awardGrid"></div>
+</main>
+
+<!-- PROFILE -->
+
+<main id="profileScreen" class="hidden">
+<div class="row" style="margin:22px 0">
+ <button class="back" onclick="showDashboard()">← FOREST HOME</button>
+ <span class="pill">🏡 TREEHOUSE</span>
+</div>
+<section class="card">
+ <div class="kicker">YOUR LITTLE CORNER OF THE FOREST</div>
+ <h2 id="profileTitle">MY TREEHOUSE</h2>
+ <p>Decorate your treehouse with all the treasures you've collected. Tap a decoration to remove it.</p>
+ <div class="profile-board" id="profileBoard"></div>
+ <h3>YOUR COLLECTION 🌼</h3>
+ <div class="sticker-grid" id="ownedStickers"></div>
+</section>
+</main>
+
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+/* SAVED PROGRESS */
+
+let state={
+ name:'',
+ points:0,
+ correct:0,
+ acorns:0,
+ owned:[],
+ placed:[],
+ awards:[],
+ bestTree:0
+};
+
+function load() {
+ try {
+  const saved=JSON.parse(localStorage.getItem('learningTreeSave'));
+  if(saved) state={...state,...saved};
+ } catch(e) {}
+}
+
+function save() {
+ try {
+  localStorage.setItem('learningTreeSave',JSON.stringify(state));
+  $('saveStatus').textContent='✓ Progress saved on this device';
+ } catch(e) {
+  $('saveStatus').textContent='Unable to save progress';
+ }
+ updateStats();
+}
+
+function updateStats() {
+ ['topPoints','dashPoints','lessonPoints','shopPoints'].forEach(id=>{
+  if($(id)) $(id).textContent=state.points;
+ });
+
+ ['topAwards','dashAwards'].forEach(id=>{
+  if($(id)) $(id).textContent=state.awards.length;
+ });
+
+ $('dashAcorns').textContent=state.acorns;
+ $('progressLabel').textContent=state.correct+' correct answers';
+ $('progressFill').style.width=(state.correct%10)*10+'%';
+
+ updateUnlocks();
+}
+
+/* NAVIGATION */
+
+const screens=[
+ 'loginScreen','app','lessonScreen',
+ 'gamesScreen','stickersScreen','profileScreen'
+];
+
+function hideScreens() {
+ screens.forEach(id=>$(id).classList.add('hidden'));
+}
+
+function showDashboard() {
+ stopTreeGame();
+ hideScreens();
+ $('app').classList.remove('hidden');
+ updateStats();
+}
+
+function enter() {
+ const name=$('nameInput').value.trim();
+
+ if(!name) {
+  $('greeting').textContent='🌼 We need your name first!';
+  $('nameInput').focus();
+  return;
+ }
+
+ state.name=name;
+ save();
+
+ $('welcomeText').textContent='HELLO, '+name.toUpperCase()+'! 🌼';
+ $('profileTitle').textContent=name.toUpperCase()+"'S TREEHOUSE";
+ $('topStats').classList.remove('hidden');
+
+ showDashboard();
+}
+
+$('startBtn').onclick=enter;
+
+$('nameInput').addEventListener('keydown',e=>{
+ if(e.key==='Enter') enter();
+});
+
+/* QUESTIONS */
+
+const banks={
+ spelling:{
+  easy:[
+   ['Which animal says meow?',['Cat','Dog','Cow'],'Cat'],
+   ['Choose the correct spelling.',['Sun','Sunn','Sune'],'Sun'],
+   ['Which word is correct?',['Aple','Apple','Appel'],'Apple'],
+   ['Which word begins with B?',['Fish','Ball','Dog'],'Ball'],
+   ['Choose the correct spelling.',['Tree','Trea','Trey'],'Tree']
+  ],
+  medium:[
+   ['Choose the correct spelling.',['Because','Becaus','Becose'],'Because'],
+   ['Which word is correct?',['Freind','Friend','Frend'],'Friend'],
+   ['Choose the correct spelling.',['Beautiful','Beautifull','Butiful'],'Beautiful'],
+   ['Which means very large?',['Tiny','Enormous','Little'],'Enormous'],
+   ['Choose the correct word.',['Library','Libary','Librery'],'Library']
+  ],
+  advanced:[
+   ['Choose the correct spelling.',['Necessary','Neccessary','Necessery'],'Necessary'],
+   ['Which is correct?',['Separate','Seperate','Seperete'],'Separate'],
+   ['Choose the correct spelling.',['Environment','Enviroment','Envirornment'],'Environment'],
+   ['Which is correct?',['Accommodate','Acommodate','Accomodate'],'Accommodate'],
+   ['Choose the correct spelling.',['Definitely','Definately','Definitly'],'Definitely']
+  ]
+ },
+ math:{
+  easy:[
+   ['What is 2 + 3?',['4','5','6'],'5'],
+   ['What is 7 - 2?',['4','5','6'],'5'],
+   ['What is 3 + 4?',['6','7','8'],'7'],
+   ['What is 5 + 5?',['9','10','11'],'10'],
+   ['What is 9 - 3?',['5','6','7'],'6']
+  ],
+  medium:[
+   ['What is 6 × 4?',['20','24','28'],'24'],
+   ['What is 18 ÷ 3?',['5','6','7'],'6'],
+   ['What is 25 + 17?',['40','42','44'],'42'],
+   ['What is 50 - 26?',['22','24','26'],'24'],
+   ['What is 9 × 7?',['56','63','72'],'63']
+  ],
+  advanced:[
+   ['What is 12 × 8?',['86','96','108'],'96'],
+   ['What is 144 ÷ 12?',['10','11','12'],'12'],
+   ['What is 3/4 of 20?',['12','15','16'],'15'],
+   ['What is 15 × 6 - 10?',['70','80','90'],'80'],
+   ['What is 25% of 80?',['15','20','25'],'20']
+  ]
+ },
+ grammar:{
+  easy:[
+   ['Choose the correct sentence.',['the dog runs.','The dog runs.','the Dog runs.'],'The dog runs.'],
+   ['Which word is a noun?',['Jump','Happy','Apple'],'Apple'],
+   ['Complete: I ___ happy.',['Am','Is','Are'],'Am'],
+   ['Which mark ends a question?',['.','?','!'],'?'],
+   ['Which word is a verb?',['Run','Blue','Apple'],'Run']
+  ],
+  medium:[
+   ['Choose the correct sentence.',['She have a cat.','She has a cat.','She having a cat.'],'She has a cat.'],
+   ['Past tense of walk?',['Walked','Walking','Walks'],'Walked'],
+   ['Which is an adjective?',['Quickly','Blue','Run'],'Blue'],
+   ['Choose the correct pronoun. ___ are friends.',['Them','We','Us'],'We'],
+   ['Plural of child?',['Childs','Children','Childes'],'Children']
+  ],
+  advanced:[
+   ['Choose the correct sentence.',['Neither are ready.','Neither is ready.','Neither ready.'],'Neither is ready.'],
+   ['Which uses their correctly?',['Their going home.','Their books are here.','They are their.'],'Their books are here.'],
+   ['Which is a conjunction?',['Although','Bright','Carefully'],'Although'],
+   ['The team ___ practicing.',['Are','Is','Be'],'Is'],
+   ['Which is an adverb?',['Quickly','Quick','Speed'],'Quickly']
+  ]
+ }
+};
+
+const subjectNames={
+ spelling:'WORD GARDEN',
+ math:'NUMBER MEADOW',
+ grammar:'STORY CORNER'
+};
+
+const subjectIcons={
+ spelling:'🔤',
+ math:'🔢',
+ grammar:'📚'
+};
+
+let currentSubject='spelling';
+let currentLevel='easy';
+let questions=[];
+let qIndex=0;
+let answered=false;
+
+document.querySelectorAll('[data-subject]').forEach(btn=>{
+ btn.onclick=()=>openSubject(btn.dataset.subject);
+});
+
+function openSubject(subject) {
+ if(subject==='games') {
+  hideScreens();
+  $('gamesScreen').classList.remove('hidden');
+  $('treeGame').classList.add('hidden');
+  $('smallGame').classList.add('hidden');
+  return;
+ }
+
+ if(subject==='stickers') {
+  hideScreens();
+  $('stickersScreen').classList.remove('hidden');
+  renderShop();
+  return;
+ }
+
+ if(subject==='profile') {
+  hideScreens();
+  $('profileScreen').classList.remove('hidden');
+  renderProfile();
+  return;
+ }
+
+ currentSubject=subject;
+ currentLevel='easy';
+
+ hideScreens();
+ $('lessonScreen').classList.remove('hidden');
+ $('lessonTitle').textContent=subjectNames[subject];
+ $('lessonIcon').textContent=subjectIcons[subject];
+
+ document.querySelectorAll('.level').forEach(b=>{
+  b.classList.toggle('active',b.dataset.level==='easy');
+ });
+
+ startQuiz();
+}
+
+document.querySelectorAll('.level').forEach(btn=>{
+ btn.onclick=()=>{
+  currentLevel=btn.dataset.level;
+
+  document.querySelectorAll('.level').forEach(b=>{
+   b.classList.toggle('active',b===btn);
+  });
+
+  startQuiz();
+ };
+});
+
+function startQuiz() {
+ questions=[...banks[currentSubject][currentLevel]]
+  .sort(()=>Math.random()-.5);
+
+ qIndex=0;
+ renderQuestion();
+}
+
+function renderQuestion() {
+ answered=false;
+ const q=questions[qIndex];
+
+ $('progressText').textContent='QUESTION '+(qIndex+1)+' OF '+questions.length;
+ $('questionText').textContent=q[0];
+ $('feedback').textContent='';
+ $('nextBtn').classList.add('hidden');
+ $('answerButtons').innerHTML='';
+
+ q[1].forEach(answer=>{
+  const btn=document.createElement('button');
+  btn.className='answer';
+  btn.textContent=answer;
+  btn.onclick=()=>chooseAnswer(answer,q[2]);
+  $('answerButtons').appendChild(btn);
+ });
+}
+
+function chooseAnswer(answer,correct) {
+ if(answered)return;
+ answered=true;
+
+ [...$('answerButtons').children].forEach(btn=>{
+  btn.disabled=true;
+  if(btn.textContent===correct)btn.classList.add('correct');
+  else if(btn.textContent===answer)btn.classList.add('wrong');
+ });
+
+ if(answer===correct) {
+  state.points+=10;
+  state.correct++;
+
+  $('feedback').textContent='🌟 Wonderful! You earned 10 points!';
+  $('feedback').style.color='#3f8650';
+  checkAwards();
+ } else {
+  $('feedback').textContent='🌱 Nice try! The answer is '+correct+'.';
+  $('feedback').style.color='#bd7568';
+ }
+
+ save();
+ $('nextBtn').classList.remove('hidden');
+ $('nextBtn').textContent=qIndex===questions.length-1?'FINISH 🌼':'NEXT QUESTION →';
+}
+
+$('nextBtn').onclick=()=>{
+ if(qIndex<questions.length-1) {
+  qIndex++;
+  renderQuestion();
+ } else {
+  showDashboard();
+ }
+};
+
+/* ACHIEVEMENTS */
+
+const awardCatalog=[
+ {id:'seed',name:'First Sprout',emoji:'🌱',goal:3},
+ {id:'flower',name:'Flower Power',emoji:'🌼',goal:5},
+ {id:'tree',name:'Growing Tree',emoji:'🌳',goal:10},
+ {id:'star',name:'Shining Star',emoji:'⭐',goal:15},
+ {id:'rainbow',name:'Rainbow Learner',emoji:'🌈',goal:25}
+];
+
+function checkAwards() {
+ awardCatalog.forEach(a=>{
+  if(state.correct>=a.goal&&!state.awards.includes(a.id)) {
+   state.awards.push(a.id);
+   state.points+=20;
+
+   setTimeout(()=>{
+    alert('🏆 NEW AWARD!\n\n'+a.emoji+' '+a.name+'\n\n+20 BONUS POINTS!');
+    save();
+   },100);
+  }
+ });
+}
+
+function updateUnlocks() {
+ const word=state.awards.length>=1;
+ const sentence=state.awards.length>=2;
+
+ $('wordCard').classList.toggle('locked',!word);
+ $('sentenceCard').classList.toggle('locked',!sentence);
+
+ $('wordStatus').textContent=word?'🔓 UNLOCKED!':'🔒 EARN 1 AWARD';
+ $('sentenceStatus').textContent=sentence?'🔓 UNLOCKED!':'🔒 EARN 2 AWARDS';
+}
+
+/* MINI GAMES */
+
+let smallQuestions=[];
+let smallIndex=0;
+let smallAnswered=false;
+
+function startSmallGame(type) {
+ if(type==='word'&&state.awards.length<1) {
+  alert('Earn your first award to unlock Word Bee! 🌱');
+  return;
+ }
+ if(type==='sentence'&&state.awards.length<2) {
+  alert('Earn two awards to unlock Sentence Builder! 🌼');
+  return;
+ }
+
+ $('treeGame').classList.add('hidden');
+ $('smallGame').classList.remove('hidden');
+
+ if(type==='word') {
+  $('smallGameTitle').textContent='🐝 WORD BEE';
+  $('smallGameEmoji').textContent='🐝';
+  smallQuestions=[
+   ['Which word is correct?',['Flour','Flouer','Flowre'],'Flour'],
+   ['Choose the correct spelling.',['Turtle','Turtel','Turtul'],'Turtle'],
+   ['Which word is correct?',['Because','Becaus','Becose'],'Because'],
+   ['Choose the correct word.',['Rainbow','Rainbo','Ranbow'],'Rainbow'],
+   ['Which is correct?',['Elephant','Elefant','Eliphant'],'Elephant']
+  ];
+ } else {
+  $('smallGameTitle').textContent='🦉 SENTENCE BUILDER';
+  $('smallGameEmoji').textContent='🦉';
+  smallQuestions=[
+   ['Choose the correct sentence.',['He are kind.','He is kind.','He am kind.'],'He is kind.'],
+   ['Pick the correct punctuation.',['Where are you.','Where are you?','Where are you!'],'Where are you?'],
+   ['Choose the plural of box.',['Boxs','Boxes','Boxies'],'Boxes'],
+   ['Which is an adjective?',['Soft','Run','Slowly'],'Soft'],
+   ['Complete: They ___ playing.',['Is','Am','Are'],'Are']
+  ];
+ }
+
+ smallIndex=0;
+ renderSmallGame();
+}
+
+function startWordGame(){startSmallGame('word')}
+function startSentenceGame(){startSmallGame('sentence')}
+
+function renderSmallGame() {
+ smallAnswered=false;
+ const q=smallQuestions[smallIndex];
+
+ $('smallGameRound').textContent=(smallIndex+1)+' / 5';
+ $('smallGameQuestion').textContent=q[0];
+ $('smallGameFeedback').textContent='';
+ $('smallGameNext').classList.add('hidden');
+ $('smallGameAnswers').innerHTML='';
+
+ q[1].forEach(answer=>{
+  const btn=document.createElement('button');
+  btn.className='answer';
+  btn.textContent=answer;
+
+  btn.onclick=()=>{
+   if(smallAnswered)return;
+   smallAnswered=true;
+
+   [...$('smallGameAnswers').children].forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===q[2])b.classList.add('correct');
+    else if(b.textContent===answer)b.classList.add('wrong');
+   });
+
+   if(answer===q[2]) {
+    state.points+=15;
+    $('smallGameFeedback').textContent='🎉 Brilliant! +15 points!';
+   } else {
+    $('smallGameFeedback').textContent='Good try! The answer is '+q[2]+'.';
+   }
+
+   save();
+   $('smallGameNext').classList.remove('hidden');
+  };
+
+  $('smallGameAnswers').appendChild(btn);
+ });
+}
+
+$('smallGameNext').onclick=()=>{
+ if(smallIndex<4) {
+  smallIndex++;
+  renderSmallGame();
+ } else {
+  alert('Game complete! You are a forest superstar! ⭐');
+  $('smallGame').classList.add('hidden');
+ }
+};
+
+/* BRANCH HOPPER GAME */
+
+const canvas=$('treeCanvas');
+const ctx=canvas.getContext('2d');
+
+let player;
+let platforms=[];
+let acorns=[];
+let hazards=[];
+let camera=0;
+let gameRunning=false;
+let gamePaused=false;
+let animationId=null;
+let gameScore=0;
+let frame=0;
+let moveDirection=0;
+let lastTime=0;
+
+const gravity=.36;
+const jumpPower=-10.5;
+
+function platform(x,y,width,hazard=false) {
+ return {x,y,width,hazard,acorn:false};
+}
+
+function resetTreeGame() {
+ player={x:195,y:445,vx:0,vy:0,size:32};
+ platforms=[];
+ acorns=[];
+ hazards=[];
+ camera=0;
+ gameScore=0;
+ frame=0;
+
+ platforms.push(platform(110,485,200));
+
+ for(let i=0;i<9;i++) {
+  const x=30+Math.random()*290;
+  const y=420-i*90;
+  const p=platform(x,y,75,Math.random()<.22);
+  platforms.push(p);
+ }
+
+ acorns=[];
+ platforms.forEach((p,i)=>{
+  if(i>0&&i%2===0) {
+   acorns.push({x:p.x+p.width/2,y:p.y-35,got:false});
+  }
+ });
+
+ $('acornScore').textContent='0';
+ drawTreeGame();
+}
+
+function drawTreeGame() {
+ ctx.clearRect(0,0,420,560);
+
+ // sky
+ const sky=ctx.createLinearGradient(0,0,0,560);
+ sky.addColorStop(0,'#b7dce2');
+ sky.addColorStop(1,'#e9f0c9');
+ ctx.fillStyle=sky;
+ ctx.fillRect(0,0,420,560);
+
+ // background trees
+ for(let i=0;i<6;i++) {
+  const x=i*85-20;
+  ctx.font='65px serif';
+  ctx.fillText('🌲',x,125+(i%2)*65);
+  ctx.fillText('🌿',x+20,355+(i%2)*35);
+ }
+
+ // ground and branches
+ ctx.save();
+ ctx.translate(0,camera);
+
+ platforms.forEach(p=>{
+  ctx.fillStyle='#765035';
+  ctx.fillRect(p.x,p.y,p.width,12);
+  ctx.fillStyle='#9b754d';
+  ctx.fillRect(p.x,p.y,p.width,4);
+
+  ctx.font='20px serif';
+  ctx.fillText('🌿',p.x+4,p.y+1);
+
+  if(p.hazard) {
+   ctx.font='22px serif';
+   ctx.fillText('🌵',p.x+p.width/2-10,p.y-4);
+  }
+ });
+
+ acorns.forEach(a=>{
+  if(!a.got) {
+   ctx.font='25px serif';
+   ctx.fillText('🌰',a.x-12,a.y+8);
+  }
+ });
+
+ // squirrel
+ ctx.font='38px serif';
+ ctx.fillText('🐿️',player.x-19,player.y+10);
+
+ ctx.restore();
+
+ // HUD
+ ctx.fillStyle='#244e35';
+ ctx.font='bold 17px Nunito';
+ ctx.fillText('🌰 '+gameScore,15,28);
+}
+
+function beginTreeGame() {
+ stopTreeGame();
+ resetTreeGame();
+
+ $('treeStartOverlay').classList.add('hidden');
+ $('treeEndOverlay').classList.add('hidden');
+ $('treeQuestionOverlay').classList.add('hidden');
+
+ gameRunning=true;
+ gamePaused=false;
+ lastTime=0;
+ animationId=requestAnimationFrame(treeLoop);
+}
+
+function treeLoop(timestamp) {
+ if(!gameRunning)return;
+
+ const delta=lastTime?Math.min((timestamp-lastTime)/16.67,2):1;
+ lastTime=timestamp;
+
+ if(!gamePaused) {
+  updateTreeGame(delta);
+  drawTreeGame();
+ }
+
+ animationId=requestAnimationFrame(treeLoop);
+}
+
+function updateTreeGame(d) {
+ frame++;
+
+ player.vx=moveDirection*4.2;
+ player.x+=player.vx*d;
+ player.vy+=gravity*d;
+ player.y+=player.vy*d;
+
+ if(player.x<0)player.x=0;
+ if(player.x>420)player.x=420;
+
+ // Land on branches
+ if(player.vy>0) {
+  platforms.forEach(p=>{
+   const oldBottom=player.y-player.vy*d+30;
+   const newBottom=player.y+30;
+
+   if(!p.hazard &&
+      player.x+15>p.x &&
+      player.x-15<p.x+p.width &&
+      oldBottom<=p.y+5 &&
+      newBottom>=p.y) {
+    player.y=p.y-30;
+    player.vy=jumpPower;
+   }
+  });
+ }
+
+ // Collect acorns
+ acorns.forEach(a=>{
+  if(!a.got&&Math.abs(player.x-a.x)<30&&Math.abs(player.y-a.y)<35) {
+   a.got=true;
+   gameScore++;
+   $('acornScore').textContent=gameScore;
+
+   if(gameScore%3===0) {
+    showTreeQuestion();
+   }
+  }
+ });
+
+ // Camera follows player
+ if(player.y-camera<220) {
+  camera=player.y-220;
+
+  // Add more branches above
+  while(platforms[platforms.length-1].y>camera-200) {
+   const last=platforms[platforms.length-1];
+   const x=20+Math.random()*310;
+   const y=last.y-90;
+   const hazard=Math.random()<.23;
+
+   platforms.push(platform(x,y,75,hazard));
+
+   if(!hazard) {
+    acorns.push({
+     x:x+37,
+     y:y-35,
+     got:false
+    });
+   }
+  }
+ }
+
+ // Remove old branches
+ platforms=platforms.filter(p=>p.y-camera<620);
+ acorns=acorns.filter(a=>a.y-camera<620);
+
+ // Falling
+ if(player.y-camera>610) {
+  endTreeGame();
+ }
+}
+
+function showTreeQuestion() {
+ gamePaused=true;
+
+ const q=[
+  ['What is 8 + 7?',['14','15','16'],'15'],
+  ['Which word is spelled correctly?',['Garden','Gardenn','Gardin'],'Garden'],
+  ['What is 6 × 5?',['25','30','35'],'30'],
+  ['Which is a noun?',['Quickly','Apple','Run'],'Apple'],
+  ['What is 48 ÷ 6?',['6','7','8'],'8'],
+  ['Which is an adjective?',['Beautiful','Jump','Slowly'],'Beautiful']
+ ];
+
+ const question=q[Math.floor(Math.random()*q.length)];
+
+ $('treeQuestion').textContent=question[0];
+ $('treeAnswers').innerHTML='';
+ $('treeFeedback').textContent='';
+ $('treeQuestionOverlay').classList.remove('hidden');
+
+ question[1].forEach(answer=>{
+  const btn=document.createElement('button');
+  btn.className='answer';
+  btn.textContent=answer;
+
+  btn.onclick=()=>{
+   [...$('treeAnswers').children].forEach(b=>b.disabled=true);
+
+   if(answer===question[2]) {
+    gameScore+=2;
+    state.points+=10;
+    $('treeFeedback').textContent='🌟 Correct! +10 points and 2 acorns!';
+   } else {
+    $('treeFeedback').textContent='🌱 Good try! The answer is '+question[2]+'.';
+   }
+
+   save();
+   $('acornScore').textContent=gameScore;
+
+   setTimeout(()=>{
+    $('treeQuestionOverlay').classList.add('hidden');
+    gamePaused=false;
+   },1100);
+  };
+
+  $('treeAnswers').appendChild(btn);
+ });
+}
+
+function endTreeGame() {
+ gameRunning=false;
+ cancelAnimationFrame(animationId);
+
+ state.acorns+=gameScore;
+ state.bestTree=Math.max(state.bestTree,gameScore);
+ state.points+=Math.floor(gameScore/2)*5;
+
+ save();
+
+ $('treeEndText').textContent=
+  'You collected '+gameScore+' acorns! Your best score is '+state.bestTree+'. Keep climbing!';
+
+ $('treeEndOverlay').classList.remove('hidden');
+}
+
+function stopTreeGame() {
+ gameRunning=false;
+ gamePaused=false;
+ if(animationId)cancelAnimationFrame(animationId);
+ moveDirection=0;
+}
+
+function setMove(direction) {
+ moveDirection=direction;
+}
+
+$('leftControl').addEventListener('pointerdown',e=>{
+ e.preventDefault();
+ setMove(-1);
+});
+$('rightControl').addEventListener('pointerdown',e=>{
+ e.preventDefault();
+ setMove(1);
+});
+
+['leftControl','rightControl'].forEach(id=>{
+ $(id).addEventListener('pointerup',()=>setMove(0));
+ $(id).addEventListener('pointerleave',()=>setMove(0));
+ $(id).addEventListener('pointercancel',()=>setMove(0));
+});
+
+document.addEventListener('keydown',e=>{
+ if(!gameRunning)return;
+ if(e.key==='ArrowLeft'||e.key.toLowerCase()==='a')moveDirection=-1;
+ if(e.key==='ArrowRight'||e.key.toLowerCase()==='d')moveDirection=1;
+});
+
+document.addEventListener('keyup',e=>{
+ if(['ArrowLeft','ArrowRight','a','d'].includes(e.key))moveDirection=0;
+});
+
+function startTreeGame() {
+ $('smallGame').classList.add('hidden');
+ $('treeGame').classList.remove('hidden');
+ beginTreeGame();
+}
+
+/* STICKER SHOP */
+
+const stickerCatalog=[
+ {id:'flower',emoji:'🌼',name:'Sunny Flower',cost:20},
+ {id:'frog',emoji:'🐸',name:'Happy Frog',cost:30},
+ {id:'bee',emoji:'🐝',name:'Busy Bee',cost:35},
+ {id:'star',emoji:'⭐',name:'Shiny Star',cost:40},
+ {id:'mushroom',emoji:'🍄',name:'Magic Mushroom',cost:45},
+ {id:'butterfly',emoji:'🦋',name:'Blue Butterfly',cost:50},
+ {id:'heart',emoji:'💗',name:'Kind Heart',cost:55},
+ {id:'apple',emoji:'🍎',name:'Sweet Apple',cost:60},
+ {id:'cat',emoji:'🐱',name:'Garden Kitty',cost:70},
+ {id:'rainbow',emoji:'🌈',name:'Rainbow',cost:80}
+];
+
+function renderShop() {
+ $('stickerGrid').innerHTML='';
+
+ stickerCatalog.forEach(s=>{
+  const owned=state.owned.includes(s.id);
+  const div=document.createElement('div');
+  div.className='sticker'+(owned?'':' locked');
+
+  div.innerHTML=`
+   <span class="big">${s.emoji}</span>
+   <strong>${s.name}</strong>
+   <div>${owned?'Already yours!':'⭐ '+s.cost+' points'}</div>
+  `;
+
+  if(!owned) {
+   const btn=document.createElement('button');
+   btn.textContent='CLAIM';
+
+   btn.onclick=()=>{
+    if(state.points<s.cost) {
+     alert('You need '+(s.cost-state.points)+' more points!');
+     return;
+    }
+
+    state.points-=s.cost;
+    state.owned.push(s.id);
+    save();
+    renderShop();
+   };
+
+   div.appendChild(btn);
+  }
+
+  $('stickerGrid').appendChild(div);
+ });
+
+ renderAwards();
+}
+
+function renderAwards() {
+ $('awardGrid').innerHTML='';
+
+ awardCatalog.forEach(a=>{
+  const earned=state.awards.includes(a.id);
+  const div=document.createElement('div');
+  div.className='sticker';
+
+  div.innerHTML=`
+   <span class="big">${earned?a.emoji:'🔒'}</span>
+   <strong>${a.name}</strong>
+   <p>${earned?'ACHIEVEMENT EARNED!':'Get '+a.goal+' correct answers'}</p>
+  `;
+
+  $('awardGrid').appendChild(div);
+ });
+}
+
+/* TREEHOUSE */
+
+function renderProfile() {
+ $('profileBoard').innerHTML='';
+
+ if(!state.placed.length) {
+  $('profileBoard').textContent='🌳 Your treehouse is waiting for decorations!';
+ }
+
+ state.placed.forEach((id,index)=>{
+  const s=stickerCatalog.find(x=>x.id===id);
+  if(!s)return;
+
+  const span=document.createElement('span');
+  span.className='placed';
+  span.textContent=s.emoji;
+
+  span.onclick=()=>{
+   state.placed.splice(index,1);
+   save();
+   renderProfile();
+  };
+
+  $('profileBoard').appendChild(span);
+ });
+
+ $('ownedStickers').innerHTML='';
+
+ if(!state.owned.length) {
+  $('ownedStickers').textContent='No treasures yet. Visit the shop! 🌱';
+ }
+
+ state.owned.forEach(id=>{
+  const s=stickerCatalog.find(x=>x.id===id);
+  if(!s)return;
+
+  const div=document.createElement('div');
+  div.className='sticker';
+
+  div.innerHTML=`
+   <span class="big">${s.emoji}</span>
+   <strong>${s.name}</strong>
+  `;
+
+  const btn=document.createElement('button');
+  btn.textContent='ADD TO TREEHOUSE';
+
+  btn.onclick=()=>{
+   state.placed.push(id);
+   save();
+   renderProfile();
+  };
+
+  div.appendChild(btn);
+  $('ownedStickers').appendChild(div);
+ });
+}
+
+/* LOAD PREVIOUS PLAYER */
+
+load();
+
+if(state.name) {
+ $('nameInput').value=state.name;
+ enter();
+}
+
+</script>
+</body>
+</html>
